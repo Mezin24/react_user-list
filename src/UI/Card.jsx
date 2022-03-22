@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Card.module.css'
 
-function Card({children}) {
+function Card({children, className}) {
   return (
-    <div className={styles.card}>{children}</div>
+    <div onClick={e => e.stopPropagation()} className={`${styles.card} ${className}`}>{children}</div>
   )
 }
 
