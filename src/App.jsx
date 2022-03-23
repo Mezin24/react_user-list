@@ -9,7 +9,11 @@ function App() {
   const [users, setUsers] = useState([{name: 'Pavel', age:  34, id: nanoid()}])
 
   const addUser = user => setUsers(prevState => [user, ...prevState])
-  const deleteUser = id => setUsers(prevState => prevState.filter(user => user.id !== id))
+  const deleteUser = id => {
+    if (window.confirm('Are you sure want to delete?')) {
+      setUsers(prevState => prevState.filter(user => user.id !== id))
+    }
+  }
 
   const content = users.length > 0 ? 
         <>
